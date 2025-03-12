@@ -43,12 +43,12 @@ def best_way_up_memo(stairs: int, steps: List[int] = [2, 1], memo: Dict[int, Lis
         result: List[int] = best_way_up_memo(stairs= new_stairs, steps= steps, memo=memo)
         if result != None:
             current = [step] + result
-            if not stairs in memo or len(current) < len(memo[stairs]) :
+        if not stairs in memo or len(current) < len(memo[stairs]) :
                 memo[stairs] = current
     return memo[stairs]
 
 def main()-> None:
-    steps: List[int] = [2, 1]
+    steps: List[int] = [2, 1, 3, 5]
     stairs: int = 5
     best_way: List[int] = best_way_up_memo(stairs=stairs, steps= steps)
     print(f"The best way up {stairs} stairs restricted to  one of {steps} steps at a time is {best_way} ")
